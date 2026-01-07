@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="400dp">
+
+    <!-- 卫星按钮容器 -->
+    <FrameLayout
+        android:id="@+id/satelliteContainer"
+        android:layout_width="400dp"
+        android:layout_height="400dp">
+
+        <!-- 主按钮 -->
+        <FrameLayout
+            android:id="@+id/mainButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_main_button">
+
+            <ImageView
+                android:id="@+id/mainIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_menu_satellite"
+                android:contentDescription="主菜单" />
+        </FrameLayout>
+
+        <!-- 卫星按钮1 - 主页 -->
+        <FrameLayout
+            android:id="@+id/satellite1"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:visibility="invisible"
+            android:background="@drawable/bg_satellite_button">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_home_satellite"
+                android:contentDescription="主页" />
+        </FrameLayout>
+
+        <!-- 卫星按钮2 - 返回 -->
+        <FrameLayout
+            android:id="@+id/satellite2"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:visibility="invisible"
+            android:background="@drawable/bg_satellite_button">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_back_satellite"
+                android:contentDescription="返回" />
+        </FrameLayout>
+
+        <!-- 卫星按钮3 - 最近 -->
+        <FrameLayout
+            android:id="@+id/satellite3"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:visibility="invisible"
+            android:background="@drawable/bg_satellite_button">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_recent_satellite"
+                android:contentDescription="最近任务" />
+        </FrameLayout>
+
+        <!-- 卫星按钮4 - 截图 -->
+        <FrameLayout
+            android:id="@+id/satellite4"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:visibility="invisible"
+            android:background="@drawable/bg_satellite_button">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_screenshot_satellite"
+                android:contentDescription="截图" />
+        </FrameLayout>
+
+        <!-- 卫星按钮5 - 音量 -->
+        <FrameLayout
+            android:id="@+id/satellite5"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:visibility="invisible"
+            android:background="@drawable/bg_satellite_button">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_volume_satellite"
+                android:contentDescription="音量" />
+        </FrameLayout>
+
+        <!-- 卫星按钮6 - 锁屏 -->
+        <FrameLayout
+            android:id="@+id/satellite6"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:visibility="invisible"
+            android:background="@drawable/bg_satellite_button">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_lock_satellite"
+                android:contentDescription="锁屏" />
+        </FrameLayout>
+
+        <!-- 卫星按钮7 - 搜索 -->
+        <FrameLayout
+            android:id="@+id/satellite7"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:visibility="invisible"
+            android:background="@drawable/bg_satellite_button">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_search_satellite"
+                android:contentDescription="搜索" />
+        </FrameLayout>
+
+        <!-- 卫星按钮8 - 图库 -->
+        <FrameLayout
+            android:id="@+id/satellite8"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:visibility="invisible"
+            android:background="@drawable/bg_satellite_button">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_gallery_satellite"
+                android:contentDescription="图库" />
+        </FrameLayout>
+
+        <!-- 卫星按钮9 - 联系人 -->
+        <FrameLayout
+            android:id="@+id/satellite9"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:visibility="invisible"
+            android:background="@drawable/bg_satellite_button">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_contacts_satellite"
+                android:contentDescription="联系人" />
+        </FrameLayout>
+
+        <!-- 卫星按钮10 - 拨号 -->
+        <FrameLayout
+            android:id="@+id/satellite10"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:visibility="invisible"
+            android:background="@drawable/bg_satellite_button">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_dialer_satellite"
+                android:contentDescription="拨号" />
+        </FrameLayout>
+    </FrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">easytouch</string>
+    <string name="accessibility_service_description">EasyTouch 快捷悬浮窗服务，用于实现返回键、最近任务等快捷操作</string>
+</resources>
