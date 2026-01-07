@@ -50,7 +50,7 @@
 ### 方式二：从源码编译
 ```bash
 # 克隆项目
-git clone https://github.com/yourusername/easytouch.git
+git clone https://github.com/holylong/easytouch.git
 cd easytouch
 
 # 编译项目
@@ -187,8 +187,8 @@ val radius = startRadius + index * radiusIncrement
 ## 联系方式
 
 - 作者：HolyLong
-- 项目地址：https://github.com/yourusername/easytouch
-- 问题反馈：https://github.com/yourusername/easytouch/issues
+- 项目地址：https://github.com/holylong/easytouch
+- 问题反馈：https://github.com/holylong/easytouch/issues
 
 ---
 
