@@ -209,30 +209,27 @@ class FloatingService : Service() {
         val centerX = (containerSize / 2).toFloat() // 容器中心
         val centerY = (containerSize / 2).toFloat()
 
-        // 螺旋状布局参数
-        val baseRadius = 80.dpToPx().toFloat() // 第一圈半径
-        val radiusIncrement = 45.dpToPx().toFloat() // 每圈半径增量
+        // 螺旋线参数
+        val startAngle = 150.0 // 起始角度
+        val angleIncrement = 38.0 // 每个按钮的角度增量
+        val startRadius = 60.dpToPx().toFloat() // 起始半径
+        val radiusIncrement = 12.dpToPx().toFloat() // 每个按钮的半径增量
 
         // 为每个卫星按钮设置位置和动画
         satelliteButtons.forEachIndexed { index, button ->
-            // 螺旋状布局：半径随索引增加
-            // 第一圈6个按钮（index 0-5），第二圈4个按钮（index 6-9）
-            val layer = index / 6 // 所在圈层
-            val indexInLayer = index % 6 // 圈内的索引
+            // 螺旋线上的位置计算
+            val angle = startAngle + index * angleIncrement
+            val radius = startRadius + index * radiusIncrement
 
-            // 计算半径和角度
-            val radius = baseRadius + layer * radiusIncrement
-            val angleInLayer = 360.0 / 6.0 // 每圈6个位置
-            val angle = Math.toRadians(150 + indexInLayer * angleInLayer)
-
-            val targetX = centerX + radius * kotlin.math.cos(angle).toFloat() - (satelliteButtonSize / 2)
-            val targetY = centerY + radius * kotlin.math.sin(angle).toFloat() - (satelliteButtonSize / 2)
+            val angleRad = Math.toRadians(angle)
+            val targetX = centerX + radius * kotlin.math.cos(angleRad).toFloat() - (satelliteButtonSize / 2)
+            val targetY = centerY + radius * kotlin.math.sin(angleRad).toFloat() - (satelliteButtonSize / 2)
 
             button.visibility = View.VISIBLE
             button.x = centerX - (satelliteButtonSize / 2) // 初始位置在中心
             button.y = centerY - (satelliteButtonSize / 2)
 
-            // 创建动画
+            // 创建螺旋展开动画
             val animatorX = ObjectAnimator.ofFloat(button, "x", targetX)
             val animatorY = ObjectAnimator.ofFloat(button, "y", targetY)
             val animatorScale = ObjectAnimator.ofFloat(button, "scaleX", 0f, 1f)
@@ -241,9 +238,9 @@ class FloatingService : Service() {
 
             val animatorSet = AnimatorSet()
             animatorSet.playTogether(animatorX, animatorY, animatorScale, animatorScaleY, animatorAlpha)
-            animatorSet.duration = 400
-            animatorSet.startDelay = (index * 50).toLong() // 依次展开
-            animatorSet.interpolator = OvershootInterpolator(1.2f)
+            animatorSet.duration = 500
+            animatorSet.startDelay = (index * 60).toLong() // 依次展开，形成螺旋效果
+            animatorSet.interpolator = OvershootInterpolator(0.8f) // 轻微弹性
             animatorSet.start()
         }
     }
