@@ -182,6 +182,13 @@ class FloatingService : Service() {
             }
         })
 
+        // 初始状态下，缩小容器到主按钮大小，减少点击区域阻挡
+        val mainButtonSize = 64.dpToPx()
+        val containerParams = container?.layoutParams as? FrameLayout.LayoutParams
+        containerParams?.width = mainButtonSize
+        containerParams?.height = mainButtonSize
+        container?.layoutParams = containerParams
+
         windowManager.addView(floatingBallView, ballParams)
     }
 
@@ -196,6 +203,14 @@ class FloatingService : Service() {
     private fun expandMenu() {
         isMenuExpanded = true
 
+        // 扩大容器以容纳卫星按钮
+        val container = floatingBallView?.findViewById<FrameLayout>(R.id.satelliteContainer)
+        val containerSize = 400.dpToPx()
+        val containerParams = container?.layoutParams as? FrameLayout.LayoutParams
+        containerParams?.width = containerSize
+        containerParams?.height = containerSize
+        container?.layoutParams = containerParams
+
         // 旋转主按钮图标
         mainIcon?.animate()
             ?.rotation(45f)
@@ -203,7 +218,6 @@ class FloatingService : Service() {
             ?.start()
 
         // 卫星按钮展开参数
-        val containerSize = 400.dpToPx() // 容器总大小
         val satelliteButtonSize = 52.dpToPx() // 卫星按钮大小
 
         val centerX = (containerSize / 2).toFloat() // 容器中心
@@ -277,8 +291,14 @@ class FloatingService : Service() {
             animatorSet.addListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
                     if (index == satelliteButtons.size - 1) {
-                        // 最后一个动画结束后隐藏所有按钮
+                        // 最后一个动画结束后隐藏所有按钮并缩小容器
                         satelliteButtons.forEach { it.visibility = View.INVISIBLE }
+                        val container = floatingBallView?.findViewById<FrameLayout>(R.id.satelliteContainer)
+                        val mainButtonSize = 64.dpToPx()
+                        val containerParams = container?.layoutParams as? FrameLayout.LayoutParams
+                        containerParams?.width = mainButtonSize
+                        containerParams?.height = mainButtonSize
+                        container?.layoutParams = containerParams
                     }
                 }
             })
